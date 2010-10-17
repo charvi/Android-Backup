@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="@color/Mycolor1">
+
+<TextView android:id="@+id/TextView01" 
+android:layout_height="wrap_content" 
+android:layout_width="match_parent" 
+android:textSize="20dp" 
+android:background="@color/MyColor" android:text="@string/Text" android:layout_marginBottom="40dp" android:layout_marginTop="20dp" android:fadingEdge="vertical" android:height="40dp" android:textStyle="bold" android:width="20dp" android:soundEffectsEnabled="false">
+</TextView>
+<CheckBox android:id="@+id/CheckBox01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Contacts"></CheckBox>
+<CheckBox android:id="@+id/CheckBox02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Settings"></CheckBox>
+<CheckBox android:id="@+id/CheckBox03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Sms"></CheckBox>
+
+
+<Button android:id="@+id/Button01" android:layout_height="wrap_content" android:text="@string/Take_Backup" android:onClick="@string/ButtonHandler" android:layout_width="wrap_content" android:layout_marginLeft="100dp" android:layout_marginTop="25dp"></Button>
+</LinearLayout>

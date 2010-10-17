@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ErrorMessage">ErrorMessage</string>
+    <string name="SmsView">SmsView</string>
+    <string name="settingsView">SettingsView</string>
+    <string name="hello">Hello World, BackRes!</string>
+    <string name="app_name">BackRes</string>
+<color name="MyColor">#332234</color>
+<color name="Mycolor1">#3399CC</color>
+<string name="Text">Select the data to backup</string>
+<string name="ButtonHandler">OnClickHandler</string>
+<string name="Take_Backup">Backup</string>
+<string name="Contacts">Contacts</string>
+<string name="Settings">Settings</string>
+<string name="Sms">Sms</string>
+<string name="Text1">text</string>
+</resources>
