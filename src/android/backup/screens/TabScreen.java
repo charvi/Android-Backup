@@ -33,6 +33,10 @@ public class TabScreen extends TabActivity {
 			intent = new Intent().setClass(this, SmsScreen.class);
 			createTab(tabHost, intent, "SMS");
 		} 
+		if (bundle.getBoolean("calender")) {
+			intent = new Intent().setClass(this, CalendarScreen.class);
+			createTab(tabHost, intent, "Calender");
+		} 
 
 	}
 

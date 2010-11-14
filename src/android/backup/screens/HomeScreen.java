@@ -10,7 +10,7 @@ import android.widget.CheckBox;
 public class HomeScreen extends Activity {
 	/** Called when the activity is first created. */
 
-	CheckBox Contacts,Settings,Sms;
+	CheckBox Contacts,Settings,Sms,Calender;
 	ContactScreen displayBackup = new ContactScreen();
 
 	public void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class HomeScreen extends Activity {
 		Contacts = (CheckBox)findViewById(R.id.CheckBox01);
 		Settings = (CheckBox)findViewById(R.id.CheckBox02);
 		Sms = (CheckBox)findViewById(R.id.CheckBox03);
+		Calender = (CheckBox)findViewById(R.id.CheckBox04);
 	}
 
 	public void OnClickHandler(View views)
@@ -28,11 +29,13 @@ public class HomeScreen extends Activity {
 		i.putExtra("contacts",Contacts.isChecked() );
 		i.putExtra("settings",Settings.isChecked() );
 		i.putExtra("sms",Sms.isChecked() );
+		i.putExtra("calender",Calender.isChecked() );
 		Contacts.setChecked(false);
 		Settings.setChecked(false);
 		Sms.setChecked(false);
+		Calender.setChecked(false);
 		startActivity(i);
 	}
-
+	
 }
 
