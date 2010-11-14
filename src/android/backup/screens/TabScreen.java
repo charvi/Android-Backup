@@ -37,6 +37,10 @@ public class TabScreen extends TabActivity {
 			intent = new Intent().setClass(this, CalendarScreen.class);
 			createTab(tabHost, intent, "Calender");
 		} 
+		if (bundle.getBoolean("bookmarks")) {
+			intent = new Intent().setClass(this, BookmarkScreen.class);
+			createTab(tabHost, intent, "Bookmarks");
+		} 
 
 	}
 

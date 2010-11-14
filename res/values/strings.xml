@@ -16,4 +16,7 @@
 <string name="Text1">text</string>
 
 <string name="Calender">Calender</string>
+<string name="Bookmarks">Bookmarks</string>
+<string name="title">title</string>
+<string name="url">url</string>
 </resources>

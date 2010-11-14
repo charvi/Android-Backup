@@ -21,6 +21,8 @@
 		</activity>
 		<activity android:name=".CalendarScreen" androidLlabel="@string/app_name">
 		</activity>
+		<activity android:name=".BookmarkScreen" androidLlabel="@string/app_name">
+		</activity>
 	</application>
 
 	<uses-sdk android:minSdkVersion="8" />
@@ -29,6 +31,8 @@
 	<uses-permission android:name="android.permission.READ_CALENDAR"></uses-permission>
 	<uses-permission android:name="android.permission.WRITE_CALENDAR"></uses-permission>
 	<uses-permission android:name="android.permission.READ_CONTACTS"></uses-permission>
+	<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="com.android.broswer.permission.WRITE_HISTORY_BOOKMARKS" />
 
 
 </manifest> 

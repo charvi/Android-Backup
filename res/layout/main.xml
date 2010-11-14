@@ -12,8 +12,9 @@ android:background="@color/MyColor" android:text="@string/Text" android:layout_m
 <CheckBox android:id="@+id/CheckBox01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Contacts"></CheckBox>
 <CheckBox android:id="@+id/CheckBox02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Settings"></CheckBox>
 <CheckBox android:id="@+id/CheckBox03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Sms"></CheckBox>
+<CheckBox android:id="@+id/CheckBox04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Calender"></CheckBox>
 
 
-<CheckBox android:id="@+id/CheckBox04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Calender"></CheckBox><Button android:id="@+id/Button01" android:layout_height="wrap_content" android:text="@string/Take_Backup" android:onClick="@string/ButtonHandler" android:layout_width="wrap_content" android:layout_marginLeft="100dp" android:layout_marginTop="25dp"></Button>
+<CheckBox android:id="@+id/CheckBox05" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Bookmarks"></CheckBox><Button android:id="@+id/Button01" android:layout_height="wrap_content" android:text="@string/Take_Backup" android:onClick="@string/ButtonHandler" android:layout_width="wrap_content" android:layout_marginLeft="100dp" android:layout_marginTop="25dp"></Button>
 
 </LinearLayout>
