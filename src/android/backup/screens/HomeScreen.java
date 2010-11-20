@@ -30,10 +30,6 @@ public class HomeScreen extends Activity {
 		i.putExtra("sms",Sms.isChecked() );
 		i.putExtra("calender",Calender.isChecked() );
 		i.putExtra("bookmarks",Bookmarks.isChecked() );
-		Contacts.setChecked(false);
-		Sms.setChecked(false);
-		Calender.setChecked(false);
-		Bookmarks.setChecked(false);
 		startActivity(i);
 	}
 	
