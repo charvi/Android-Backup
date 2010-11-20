@@ -28,13 +28,13 @@ public final class R {
         public static final int bmark_title=0x7f060001;
         public static final int bmark_url=0x7f060002;
         public static final int bmark_visits=0x7f060000;
-        public static final int contactName=0x7f060003;
-        public static final int contactNumber=0x7f060004;
+        public static final int text1=0x7f060003;
+        public static final int text2=0x7f060004;
     }
     public static final class layout {
         public static final int bookmark=0x7f030000;
-        public static final int contactlist=0x7f030001;
-        public static final int contactrow=0x7f030002;
+        public static final int contactrow=0x7f030001;
+        public static final int customrow=0x7f030002;
         public static final int main=0x7f030003;
         public static final int sms=0x7f030004;
         public static final int tab=0x7f030005;

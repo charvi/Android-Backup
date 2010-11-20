@@ -1,95 +1,88 @@
 package android.backup.screens;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-public class SmsScreen extends ListActivity 
-{
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
-	String extStorageDirectory ;
-	String[] data =  new String[10];
-	String[] sender =  new String[10];
+public class SmsScreen extends ListActivity {
 
-	public void onCreate(Bundle savedInstanceState) 
-	{    
-		super.onCreate(savedInstanceState);	
-		try {
-			smsDisplay();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    String extStorageDirectory;
+    ArrayList<String> smsTextList = new ArrayList<String>();
+    ArrayList<String> senderList = new ArrayList<String>();
+    private List<HashMap<String,String>> list= new ArrayList<HashMap<String,String>>();
 
-		//		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.sms, data);
-		//		setListAdapter(arrayAdapter);
-	}
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        list.clear();
+        setContentView(R.layout.customrow);
 
-	private void smsDisplay() throws IOException
-	{
-		
-		for(int i=0;i<10;i++)
-		{
-			data[i]="null";
-		}
+        SimpleAdapter adapter = new SimpleAdapter(
+                this,
+                list,
+                R.layout.contactrow,
+                new String[]{"smsNumber", "smsText"},
+                new int[]{R.id.text1, R.id.text2}
+        );
+        try {
+            smsDisplay();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         setListAdapter(adapter);
+    }
 
-		Uri mSmsQueryUri = Uri.parse("content://sms/inbox");
+    private void smsDisplay() throws IOException {
 
-		Cursor SMScursor=this.managedQuery(mSmsQueryUri,new String[] { "_id", "thread_id", "address", "person", "date", "body" },null,null,null);
-		startManagingCursor(SMScursor);
+        Uri mSmsQueryUri = Uri.parse("content://sms/inbox");
+        Cursor SMScursor = this.managedQuery(mSmsQueryUri, new String[]{"_id", "thread_id", "address", "person", "date", "body"}, null, null, null);
+        startManagingCursor(SMScursor);
+        extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        Toast.makeText(this, extStorageDirectory, Toast.LENGTH_LONG);
+        File file = new File(extStorageDirectory, "sms.txt");
+        FileWriter text =  new FileWriter(file);
+        BufferedWriter out = new BufferedWriter(text);
 
-		extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-		Toast.makeText(this, extStorageDirectory, Toast.LENGTH_LONG);
-		OutputStream outStream = null;
-		File file = new File(extStorageDirectory, "sms.txt");
+        if (SMScursor != null) {
+            int count = SMScursor.getCount();
+            if (count > 0) {
+                for (int i = 0; i < count; i++) {
+                    SMScursor.moveToPosition(i);
+                    String address = SMScursor.getString(2);
+                    String body = SMScursor.getString(5);
 
-		outStream = new FileOutputStream(file);			
+                    smsTextList.add(i, body);
+                    senderList.add(i, address);
+
+                    out.write(senderList.get(i)+" "+smsTextList.get(i)+ ", ");
+                   populateList(senderList.get(i),smsTextList.get(i));
+
+                }
+            } else {
+                Toast.makeText(this, "NO MESSAGES IN INBOX", Toast.LENGTH_LONG).show();
+            }
+            out.flush();
+            out.close();
+            SMScursor.close();
+        }
 
 
-		if(SMScursor!=null)
-		{
-			int count= SMScursor.getCount();          
-			if(count>0)
-			{
-				for(int i=0;i<count;i++)
-				{
-					SMScursor.moveToPosition(i);        	  
-					String address=SMScursor.getString(2);
-					String body = SMScursor.getString(5);
-
-					data[i]=body;
-					sender[i]=address;             
-
-					byte []buffer = data[i].getBytes();
-					outStream.write(buffer);
-					
-					Toast.makeText(this,address, Toast.LENGTH_LONG).show();
-					Toast.makeText(this,body, Toast.LENGTH_LONG).show();
-				}
-			}
-			else
-			{
-				Toast.makeText(this,"NO MESSAGES IN INBOX",Toast.LENGTH_LONG).show();
-			}
-			outStream.flush();
-			outStream.close();
-			SMScursor.close();
-		}
-
-		//	ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.sms, data);
-		//	setListAdapter(arrayAdapter);
-
-	}
+    }
+    private void populateList(String smsNumber,String smsText)
+    {
+          HashMap<String, String> temp = new HashMap<String, String>();
+        temp.put("smsNumber", smsNumber);
+        temp.put("smsText", smsText);
+        list.add(temp);
+    }
 }

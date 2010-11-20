@@ -31,14 +31,14 @@ public class ContactScreen extends ListActivity {
 
         super.onCreate(savedInstanceState);
         list.clear();
-        setContentView(R.layout.contactlist);
+        setContentView(R.layout.customrow);
 
         SimpleAdapter adapter = new SimpleAdapter(
                 this,
                 list,
                 R.layout.contactrow,
                 new String[]{"contactName", "contactNumber"},
-                new int[]{R.id.contactName, R.id.contactNumber}
+                new int[]{R.id.text1, R.id.text2}
         );
         displayContacts();
         setListAdapter(adapter);
