@@ -7,7 +7,6 @@ import android.os.Environment;
 import android.provider.ContactsContract;
 import android.widget.ListAdapter;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,7 +29,6 @@ public class ContactScreen extends ListActivity {
 	public void displayContacts() throws IOException
 	{
 		String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-		Toast.makeText(this, extStorageDirectory, Toast.LENGTH_LONG);
 		OutputStream outStream = null;
 		File file = new File(extStorageDirectory, "contacts.txt");
 		outStream = new FileOutputStream(file);
@@ -39,8 +37,8 @@ public class ContactScreen extends ListActivity {
 				null, null, null, null);
 
 		String[] columnsToMap = new String[] {ContactsContract.Contacts.DISPLAY_NAME};
-		int[] mapTo = new int[] {R.id.TextView01};
-		mAdapter = new SimpleCursorAdapter(this,R.layout.list,contactsCursor, columnsToMap, mapTo);			
+		int[] mapTo = new int[] {R.id.ContactName};
+		mAdapter = new SimpleCursorAdapter(this,R.layout.contactlist,contactsCursor, columnsToMap, mapTo);
 		this.setListAdapter(mAdapter);			
 		SaveToFile(outStream,contactsCursor);
 		outStream.flush();

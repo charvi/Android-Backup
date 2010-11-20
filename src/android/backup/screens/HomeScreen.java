@@ -17,7 +17,6 @@ public class HomeScreen extends Activity {
 		setContentView(R.layout.main);
 
 		Contacts = (CheckBox)findViewById(R.id.CheckBox01);
-		Settings = (CheckBox)findViewById(R.id.CheckBox02);
 		Sms = (CheckBox)findViewById(R.id.CheckBox03);
 		Calender = (CheckBox)findViewById(R.id.CheckBox04);
 		Bookmarks = (CheckBox)findViewById(R.id.CheckBox05);
@@ -28,12 +27,10 @@ public class HomeScreen extends Activity {
 	{
 		Intent i = new Intent(this, TabScreen.class);
 		i.putExtra("contacts",Contacts.isChecked() );
-		i.putExtra("settings",Settings.isChecked() );
 		i.putExtra("sms",Sms.isChecked() );
 		i.putExtra("calender",Calender.isChecked() );
 		i.putExtra("bookmarks",Bookmarks.isChecked() );
 		Contacts.setChecked(false);
-		Settings.setChecked(false);
 		Sms.setChecked(false);
 		Calender.setChecked(false);
 		Bookmarks.setChecked(false);

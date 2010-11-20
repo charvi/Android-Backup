@@ -17,8 +17,6 @@
 		</activity>
 		<activity android:name=".SmsScreen" androidLlabel="@string/app_name">
 		</activity>
-		<activity android:name=".SettingsScreen" androidLlabel="@string/app_name">
-		</activity>
 		<activity android:name=".CalendarScreen" androidLlabel="@string/app_name">
 		</activity>
 		<activity android:name=".BookmarkScreen" androidLlabel="@string/app_name">

@@ -7,7 +7,6 @@
 android:text="@string/Text" android:layout_marginBottom="40dp" android:fadingEdge="vertical" android:height="40dp" android:soundEffectsEnabled="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="20dp" android:width="20dp" android:textStyle="bold" android:paddingLeft="30dp" android:background="@color/MyColor" android:paddingTop="5dp" android:layout_marginTop="30dp">
 </TextView>
 <CheckBox android:id="@+id/CheckBox01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Contacts"></CheckBox>
-<CheckBox android:id="@+id/CheckBox02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Settings"></CheckBox>
 <CheckBox android:id="@+id/CheckBox03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Sms"></CheckBox>
 <CheckBox android:id="@+id/CheckBox04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/Calender"></CheckBox>
 

@@ -24,11 +24,7 @@ public class TabScreen extends TabActivity {
 		if (bundle.getBoolean("contacts")) {
 			intent = new Intent().setClass(this, ContactScreen.class);
 			createTab(tabHost, intent, "Contacts");
-		} 
-		if (bundle.getBoolean("settings")) {
-			intent = new Intent().setClass(this, SettingsScreen.class);
-			createTab(tabHost, intent, "Settings");
-		} 
+		}
 		if (bundle.getBoolean("sms")) {
 			intent = new Intent().setClass(this, SmsScreen.class);
 			createTab(tabHost, intent, "SMS");
