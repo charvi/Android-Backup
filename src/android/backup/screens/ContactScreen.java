@@ -1,21 +1,21 @@
 package android.backup.screens;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.ContactsContract;
-import android.widget.CursorAdapter;
+import android.widget.ListAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class ContactScreen extends ListActivity {
-	CursorAdapter mAdapter;	
+	ListAdapter mAdapter;	
 	@Override
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,8 @@ public class ContactScreen extends ListActivity {
 
 		Cursor contactsCursor = this.managedQuery(ContactsContract.Contacts.CONTENT_URI,
 				null, null, null, null);
-		String[] columnsToMap = new String[] {ContactsContract.Contacts.DISPLAY_NAME};		
+
+		String[] columnsToMap = new String[] {ContactsContract.Contacts.DISPLAY_NAME};
 		int[] mapTo = new int[] {R.id.TextView01};
 		mAdapter = new SimpleCursorAdapter(this,R.layout.list,contactsCursor, columnsToMap, mapTo);			
 		this.setListAdapter(mAdapter);			
@@ -45,8 +46,6 @@ public class ContactScreen extends ListActivity {
 		outStream.flush();
 		outStream.close();
 	}
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////
 
 	private void SaveToFile(OutputStream outStream , Cursor contactsCursor) 
 	{		

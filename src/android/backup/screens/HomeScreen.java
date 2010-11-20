@@ -1,7 +1,6 @@
 package android.backup.screens;
 
 import android.app.Activity;
-import android.backup.screens.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +21,7 @@ public class HomeScreen extends Activity {
 		Sms = (CheckBox)findViewById(R.id.CheckBox03);
 		Calender = (CheckBox)findViewById(R.id.CheckBox04);
 		Bookmarks = (CheckBox)findViewById(R.id.CheckBox05);
-		
+
 	}
 
 	public void OnClickHandler(View views)
