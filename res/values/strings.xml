@@ -17,5 +17,6 @@
 <string name="Bookmarks">Bookmarks</string>
 <string name="title">title</string>
 <string name="url">url</string>
-<color name="color2">#CDCC</color>
+    <string name="Restore">Restore</string>
+    <color name="color2">#CDCC</color>
 </resources>

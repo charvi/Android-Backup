@@ -24,6 +24,7 @@ public final class R {
         public static final int CheckBox03=0x7f060007;
         public static final int CheckBox04=0x7f060008;
         public static final int CheckBox05=0x7f060009;
+        public static final int Restore=0x7f06000b;
         public static final int TextView01=0x7f060005;
         public static final int bmark_title=0x7f060001;
         public static final int bmark_url=0x7f060002;
@@ -46,6 +47,7 @@ public final class R {
         public static final int ContactName=0x7f040009;
         public static final int Contacts=0x7f040007;
         public static final int ErrorMessage=0x7f040000;
+        public static final int Restore=0x7f04000e;
         public static final int Sms=0x7f040008;
         public static final int SmsView=0x7f040001;
         public static final int Take_Backup=0x7f040006;
