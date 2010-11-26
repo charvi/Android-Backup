@@ -9,10 +9,7 @@ import android.widget.ListAdapter;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,14 +18,16 @@ public class ContactScreen extends ListActivity {
     private static final int DISPLAY_NAME = 10;
     private Cursor phones;
     private String phoneNumber;
-    private String displayName;
+    private String displayName = "";
     TextView t;
+    Bundle bundle;
     static final ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
     @Override
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
 
+        bundle = getIntent().getExtras();
         super.onCreate(savedInstanceState);
         list.clear();
         setContentView(R.layout.customrow);
@@ -46,20 +45,56 @@ public class ContactScreen extends ListActivity {
 
     public void displayContacts() {
 
-        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-        File file = new File(extStorageDirectory, "contacts.txt");
-        FileWriter text = null;
-         BufferedWriter out=null;
-        try {
-            text = new FileWriter(file);
-            out= new BufferedWriter(text);
-            Cursor contactsCursor = this.managedQuery(ContactsContract.Contacts.CONTENT_URI,
-                    null, null, null, null);
-            SaveToFile(out, contactsCursor);
-            out.flush();
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if ((bundle != null) && (bundle.getBoolean("read") == true)) {
+
+            String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+            File file = new File(extStorageDirectory, "contacts.txt");
+            FileReader text = null;
+            BufferedReader in = null;
+            String line;
+            try {
+                text = new FileReader(file);
+                in = new BufferedReader(text);
+                while ((line = in.readLine()) != null) {
+                    if (line.equals(""))
+                        continue;
+                    String[] contacts = line.split(",");
+                    for (int i = 0; i < contacts.length; i++) {
+                        String[] contact = contacts[i].split(" ");
+                        if (contact.length != 0) {
+                            phoneNumber = contact[contact.length - 1];
+                            for (int j = contact.length - 2; j >= 0; j--) {
+                                displayName = displayName + " " + contact[j];
+                            }
+                          pupulateList();
+                            phoneNumber=displayName="" ;
+                        }
+
+                    }
+
+                }
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+
+            String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+            File file = new File(extStorageDirectory, "contacts.txt");
+            FileWriter text = null;
+            BufferedWriter out = null;
+            try {
+                text = new FileWriter(file);
+                out = new BufferedWriter(text);
+                Cursor contactsCursor = this.managedQuery(ContactsContract.Contacts.CONTENT_URI,
+                        null, null, null, null);
+                SaveToFile(out, contactsCursor);
+                out.flush();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 
