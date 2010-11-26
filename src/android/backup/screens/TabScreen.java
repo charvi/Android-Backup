@@ -9,7 +9,6 @@ public class TabScreen extends TabActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tab);			
 		TabHost tabHost = getTabHost();  // The activity TabHost	    

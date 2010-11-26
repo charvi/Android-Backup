@@ -23,7 +23,17 @@ public class HomeScreen extends Activity {
 
 	}
 
-	public void OnClickHandler(View views)
+	public void SubmitClickHandler(View views)
+	{
+		Intent i = new Intent(this, TabScreen.class);
+		i.putExtra("contacts",Contacts.isChecked() );
+		i.putExtra("sms",Sms.isChecked() );
+		i.putExtra("calender",Calender.isChecked() );
+		i.putExtra("bookmarks",Bookmarks.isChecked() );
+		startActivity(i);
+	}
+
+    public void RestoreClickHandler(View views)
 	{
 		Intent i = new Intent(this, TabScreen.class);
 		i.putExtra("contacts",Contacts.isChecked() );

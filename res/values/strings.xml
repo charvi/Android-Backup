@@ -7,7 +7,7 @@
 <color name="MyColor">#332234</color>
 <color name="Mycolor1">#3399CC</color>
 <string name="Text">Select the data to backup</string>
-<string name="ButtonHandler">OnClickHandler</string>
+<string name="ButtonHandler">SubmitClickHandler</string>
 <string name="Take_Backup">Backup</string>
 <string name="Contacts">Contacts</string>
 <string name="Sms">Sms</string>
@@ -18,5 +18,6 @@
 <string name="title">title</string>
 <string name="url">url</string>
     <string name="Restore">Restore</string>
+    <string name="RestoreButtonHandler">RestoreClickHandler</string>
     <color name="color2">#CDCC</color>
 </resources>

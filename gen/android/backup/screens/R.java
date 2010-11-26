@@ -48,6 +48,7 @@ public final class R {
         public static final int Contacts=0x7f040007;
         public static final int ErrorMessage=0x7f040000;
         public static final int Restore=0x7f04000e;
+        public static final int RestoreButtonHandler=0x7f04000f;
         public static final int Sms=0x7f040008;
         public static final int SmsView=0x7f040001;
         public static final int Take_Backup=0x7f040006;
